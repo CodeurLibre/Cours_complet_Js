@@ -1,0 +1,9 @@
+* {
+  font-family: Verdana;
+  text-align: center;
+}
+
+.userCard {
+  border: solid 2px orange;
+  margin: 10px;
+}

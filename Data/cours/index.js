@@ -17,19 +17,19 @@ let data = [
     pseudo: "Hugues",
     age: 21,
     techno: ["Js", "React", "Node Js"],
-    admis: false,
+    admin: false,
   },
   {
     pseudo: "Priscille",
     age: 22,
     techno: ["Python", "React", "Node Js"],
-    admis: true,
+    admin: true,
   },
   {
     pseudo: "Charles",
     age: 24,
     techno: ["Php", "React", "Node Js"],
-    admis: false,
+    admin: false,
   },
 ];
 // console.log(data[0].pseudo[2]);
@@ -127,12 +127,17 @@ let arrayNumber = [17, 5, 13, 4];
 //   .join(" ");
 //! Methode object
 document.body.innerHTML = data
+  .filter((user) => user.pseudo.includes("s"))
+  .sort((a, b) => b.age - a.age)
   .map(
     (user) => `
-  <div>
-    <h3>${user.techno[0]}</h3>
+  <div class='userCard'>
+    <h3>Pseudo: ${user.pseudo}</h3>
+    <p>Age: ${user.age} ans</p>
+    <p>Status: ${user.admin ? "Modérateur" : "Membre"}</p>
     
   </div>
+  
 `
   )
   .join("");
