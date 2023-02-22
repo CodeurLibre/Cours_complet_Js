@@ -126,18 +126,65 @@ let arrayNumber = [17, 5, 13, 4];
 //   .map((number) => `<li>${number}</li>`)
 //   .join(" ");
 //! Methode object
-document.body.innerHTML = data
-  .filter((user) => user.pseudo.includes("s"))
-  .sort((a, b) => b.age - a.age)
-  .map(
-    (user) => `
-  <div class='userCard'>
-    <h3>Pseudo: ${user.pseudo}</h3>
-    <p>Age: ${user.age} ans</p>
-    <p>Status: ${user.admin ? "Modérateur" : "Membre"}</p>
-    
-  </div>
-  
-`
-  )
-  .join("");
+// document.body.innerHTML = data
+//   .filter((user) => user.pseudo.includes("s"))
+//   .sort((a, b) => b.age - a.age)
+//   .map(
+//     (user) => `
+//   <div class='userCard'>
+//     <h3>Pseudo: ${user.pseudo}</h3>
+//     <p>Age: ${user.age} ans</p>
+//     <p>Status: ${user.admin ? "Modérateur" : "Membre"}</p>
+
+//   </div>
+
+// `
+//   )
+//   .join("");
+
+//! Date classique
+let date = new Date();
+// console.log(date);
+
+//? Timestamp
+// let timestamp = Date.parse(date);
+// console.log(timestamp);
+
+//! Isostring
+let iso = date.toISOString();
+function dateParser(chaine) {
+  let newDate = new Date(chaine).toLocaleDateString("fr-FR", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+  return newDate;
+}
+// console.log(dateParser(date));
+
+//! Le destructuring
+let moreData = {
+  desVar: ["Element 1", "Element 2"],
+};
+
+const { desVar } = moreData;
+// console.log(desVar[0]);
+
+let array5 = [70, 80, 90];
+let [x, y, z] = array5;
+// console.log(x, y, z);
+
+const dateDestructuring = (chaine) => {
+  let newDate = chaine.split("T")[0];
+  let [y, m, d] = newDate.split("-");
+  return [d, m, y].join("/");
+};
+// console.log(dateDestructuring(iso));
+
+//! Les Datasets
+const js = document.getElementById("Javascript");
+// console.log(js.dataset.lang);
+
+const h3 = document.querySelectorAll("h3");
+
+h3.forEach((lang) => console.log(lang.dataset));
